@@ -31,10 +31,7 @@
         .title {
             margin-bottom: 30px;
             font-size: 24px;
-            animation: bounce 2s infinite, gradient 5s linear infinite; /* Added gradient animation */
-            background: linear-gradient(45deg, #00f, #009); /* Initial gradient colors */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            animation: bounce 2s infinite; /* Added bounce animation */
         }
         .button {
             font-size: 18px;
@@ -87,17 +84,6 @@
             }
             50% {
                 transform: translateY(-5px);
-            }
-        }
-        @keyframes gradient {
-            0% {
-                background: linear-gradient(45deg, #00f, #009);
-            }
-            50% {
-                background: linear-gradient(45deg, #009, #00f);
-            }
-            100% {
-                background: linear-gradient(45deg, #00f, #009);
             }
         }
     </style>
