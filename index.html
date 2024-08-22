@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internalization</title>
+    <style>
+        @font-face {
+            font-family: 'Determination Mono';
+            src: url('determination-mono.ttf') format('truetype'); /* Ensure this font file is in the root folder */
+        }
+        body {
+            background-color: black;
+            color: white;
+            font-family: 'Determination Mono', 'Courier New', monospace;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        .settings-container {
+            border: 2px solid white;
+            padding: 20px;
+            max-width: 300px;
+            width: 100%;
+            display: none; /* Initially hidden */
+        }
+        .title {
+            margin-bottom: 30px;
+            font-size: 24px;
+            animation: bounce 2s infinite;
+        }
+        .button {
+            font-size: 18px;
+            padding: 10px 20px;
+            border: 2px solid white;
+            cursor: pointer;
+            background-color: black;
+            color: white;
+            transition: color 0.2s ease, background-color 0.2s ease;
+        }
+        .button:hover {
+            color: yellow;
+        }
+        .enter-button {
+            font-size: 24px;
+            padding: 20px 40px;
+            border: 2px solid white;
+            cursor: pointer;
+            background-color: black;
+            color: white;
+            transition: color 0.2s ease, background-color 0.2s ease;
+        }
+        .enter-button:hover {
+            color: yellow;
+        }
+        .dropdown {
+            display: none; /* Initially hidden */
+            position: absolute;
+            background-color: black;
+            border: 2px solid white;
+            padding: 10px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            text-align: left;
+            z-index: 1;
+        }
+        .dropdown a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 8px;
+        }
+        .dropdown a:hover {
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <button class="enter-button" onclick="startMusic()">Enter</button>
+    <div class="settings-container">
+        <img src="https://static.wikia.nocookie.net/deltarune/images/a/ae/Susie_face_unhidden.png/revision/latest?cb=20211105001014" alt="Susie" class="susie-image">
+        <br>
+        <br>
+        <div class="title">Internalization</div>
+        <div class="body">14 years old</div>
+        <br>
+        <br>
+        <button class="button" onclick="toggleDropdown()">Files</button>
+        <ul id="dropdownMenu" class="dropdown">
+            <li><a href="files/placeholder.txt" download>∗ Arduino Project 1</a></li>
+            <li><a href="files/placeholder.txt" download>∗ Arduino Project 2</a></li>
+            <!-- Add more file links as needed -->
+        </ul>
+        <audio id="hoverSound" src="hover_sound.mp3"></audio> <!-- Hover sound located in root -->
+        <audio id="backgroundMusic"></audio>
+    </div>
+
+    <script>
+        // Function to start the background music and reveal the settings container
+        function startMusic() {
+            // Randomly select and play either "Core" or "Amalgam"
+            var songs = [
+                'core.mp3',   // Core track in the root folder
+                'amalgam.mp3' // Amalgam track in the root folder
+            ];
+
+            var randomSong = songs[Math.floor(Math.random() * songs.length)];
+            var backgroundMusic = document.getElementById('backgroundMusic');
+            backgroundMusic.src = randomSong;
+            backgroundMusic.play();
+
+            // Hide the Enter button and show the settings container
+            document.querySelector('.enter-button').style.display = 'none';
+            document.querySelector('.settings-container').style.display = 'block';
+        }
+
+        // Function to toggle the dropdown menu
+        function toggleDropdown() {
+            var dropdown = document.getElementById('dropdownMenu');
+            dropdown.style.display = (dropdown.style.display === 'none' || dropdown.style.display === '') ? 'block' : 'none';
+        }
+
+        // Function to play the hover sound
+        function playSound() {
+            document.getElementById('hoverSound').play();
+        }
+    </script>
+</body>
+</html>
