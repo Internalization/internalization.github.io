@@ -96,25 +96,22 @@
             <li><a href="files/placeholder.txt" download>∗ Arduino Project 2</a></li>
             <!-- Add more file links as needed -->
         </ul>
-        <audio id="hoverSound" src="hover_sound.mp3"></audio> <!-- Hover sound located in root -->
+        <audio id="hoverSound" src="hover_sound.mp3"></audio>
         <audio id="backgroundMusic"></audio>
     </div>
 
     <script>
         // Function to start the background music and reveal the settings container
         function startMusic() {
-            // Randomly select and play either "Core" or "Amalgam"
             var songs = [
-                'core.mp3',   // Core track in the root folder
-                'amalgam.mp3' // Amalgam track in the root folder
+                'core.mp3',   
             ];
 
             var randomSong = songs[Math.floor(Math.random() * songs.length)];
             var backgroundMusic = document.getElementById('backgroundMusic');
             backgroundMusic.src = randomSong;
             backgroundMusic.play();
-
-            // Hide the Enter button and show the settings container
+            
             document.querySelector('.enter-button').style.display = 'none';
             document.querySelector('.settings-container').style.display = 'block';
         }
