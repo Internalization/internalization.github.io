@@ -31,7 +31,7 @@
         .title {
             margin-bottom: 30px;
             font-size: 24px;
-            animation: bounce 2s infinite;
+            animation: bounce 2s infinite; /* Added bounce animation */
         }
         .button {
             font-size: 18px;
@@ -77,6 +77,14 @@
         }
         .dropdown a:hover {
             color: yellow;
+        }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
         }
     </style>
 </head>
@@ -126,6 +134,11 @@
         function playSound() {
             document.getElementById('hoverSound').play();
         }
+
+        // Add event listeners to play hover sound when hovering over dropdown items
+        document.querySelectorAll('#dropdownMenu a').forEach(item => {
+            item.addEventListener('mouseover', playSound);
+        });
     </script>
 </body>
 </html>
