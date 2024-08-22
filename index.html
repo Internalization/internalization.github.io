@@ -31,7 +31,7 @@
         .title {
             margin-bottom: 30px;
             font-size: 24px;
-            animation: bounce 2s infinite; /* Added bounce animation */
+            animation: bounce 1.3s infinite; /* Added bounce animation */
         }
         .button {
             font-size: 18px;
@@ -154,7 +154,7 @@
 
             // Use average frequency data to set font size
             const average = dataArray.reduce((a, b) => a + b, 0) / dataArray.length;
-            const fontSize = Math.min(24 + average / 10, 72); // Min/max font size
+            const fontSize = Math.min(36 + average / 10, 80); // Min/max font size
             document.getElementById('title').style.fontSize = `${fontSize}px`;
         }
 
