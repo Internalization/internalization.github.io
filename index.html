@@ -94,7 +94,7 @@
         <img src="image.png" alt="Susie" class="susie-image">
         <br>
         <br>
-        <div class="title">Internalization</div>
+        <div id="title" class="title">Internalization</div>
         <div class="body">14 years old</div>
         <br>
         <br>
@@ -109,6 +109,24 @@
     </div>
 
     <script>
+        // Audio context and analyser
+        let audioContext;
+        let analyser;
+        let dataArray;
+
+        function setupAudio() {
+            audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            analyser = audioContext.createAnalyser();
+            analyser.fftSize = 256; // Number of frequency bins
+            const bufferLength = analyser.frequencyBinCount;
+            dataArray = new Uint8Array(bufferLength);
+
+            const audioElement = document.getElementById('backgroundMusic');
+            const source = audioContext.createMediaElementSource(audioElement);
+            source.connect(analyser);
+            analyser.connect(audioContext.destination);
+        }
+
         // Function to start the background music and reveal the settings container
         function startMusic() {
             var songs = [
@@ -118,10 +136,26 @@
             var randomSong = songs[Math.floor(Math.random() * songs.length)];
             var backgroundMusic = document.getElementById('backgroundMusic');
             backgroundMusic.src = randomSong;
+
+            setupAudio(); // Initialize audio context and analyser
+
             backgroundMusic.play();
             
             document.querySelector('.enter-button').style.display = 'none';
             document.querySelector('.settings-container').style.display = 'block';
+
+            animateText(); // Start animating text
+        }
+
+        // Function to animate text size based on audio data
+        function animateText() {
+            requestAnimationFrame(animateText);
+            analyser.getByteFrequencyData(dataArray);
+
+            // Use average frequency data to set font size
+            const average = dataArray.reduce((a, b) => a + b, 0) / dataArray.length;
+            const fontSize = Math.min(24 + average / 10, 72); // Min/max font size
+            document.getElementById('title').style.fontSize = `${fontSize}px`;
         }
 
         // Function to toggle the dropdown menu
