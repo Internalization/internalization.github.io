@@ -7,7 +7,7 @@
     <style>
         @font-face {
             font-family: 'Determination Mono';
-            src: url('determination-mono.ttf') format('truetype'); /* xsure this font file is in the root folder */
+            src: url('determination-mono.ttf') format('truetype'); /* Ensure this font file is in the root folder */
         }
         body {
             background-color: black;
@@ -31,7 +31,34 @@
         .title {
             margin-bottom: 30px;
             font-size: 24px;
-            animation: bounce 1.3s infinite; /* Added bounce animation */
+            display: flex;
+            justify-content: center;
+        }
+        .wave {
+            display: inline-block;
+            animation: wave-animation 1.5s infinite;
+        }
+        .wave:nth-child(1) { animation-delay: 0s; }
+        .wave:nth-child(2) { animation-delay: 0.1s; }
+        .wave:nth-child(3) { animation-delay: 0.2s; }
+        .wave:nth-child(4) { animation-delay: 0.3s; }
+        .wave:nth-child(5) { animation-delay: 0.4s; }
+        .wave:nth-child(6) { animation-delay: 0.5s; }
+        .wave:nth-child(7) { animation-delay: 0.6s; }
+        .wave:nth-child(8) { animation-delay: 0.7s; }
+        .wave:nth-child(9) { animation-delay: 0.8s; }
+        .wave:nth-child(10) { animation-delay: 0.9s; }
+        .wave:nth-child(11) { animation-delay: 1s; }
+        .wave:nth-child(12) { animation-delay: 1.1s; }
+        .wave:nth-child(13) { animation-delay: 1.2s; }
+        
+        @keyframes wave-animation {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
         }
         .button {
             font-size: 18px;
@@ -78,14 +105,6 @@
         .dropdown a:hover {
             color: yellow;
         }
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-5px);
-            }
-        }
     </style>
 </head>
 <body>
@@ -94,7 +113,23 @@
         <img src="image.png" alt="Susie" class="susie-image">
         <br>
         <br>
-        <div id="title" class="title">Internalization</div>
+        <div id="title" class="title">
+            <span class="wave">I</span>
+            <span class="wave">n</span>
+            <span class="wave">t</span>
+            <span class="wave">e</span>
+            <span class="wave">r</span>
+            <span class="wave">n</span>
+            <span class="wave">a</span>
+            <span class="wave">l</span>
+            <span class="wave">i</span>
+            <span class="wave">z</span>
+            <span class="wave">a</span>
+            <span class="wave">t</span>
+            <span class="wave">i</span>
+            <span class="wave">o</span>
+            <span class="wave">n</span>
+        </div>
         <div class="body">14 years old</div>
         <br>
         <br>
