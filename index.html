@@ -150,7 +150,6 @@
             <span class="wave">o</span>
             <span class="wave">n</span>
         </div>
-        <div class="body">14 years old</div>
         <br>
         <br>
         <button class="button" onclick="toggleDropdown()">Files</button>
@@ -209,7 +208,7 @@
 
             // Use average frequency data to set font size
             const average = dataArray.reduce((a, b) => a + b, 0) / dataArray.length;
-            const fontSize = Math.min(36 + average / 10, 80); // Min/max font size
+            const fontSize = Math.min(15 + average / 10, 30); // Min/max font size
             document.getElementById('title').style.fontSize = `${fontSize}px`;
         }
 
