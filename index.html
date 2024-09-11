@@ -70,6 +70,15 @@
             100% { color: purple; }
         }
 
+        @keyframes enterPulse {
+            0%, 100% {
+                transform: scale(1) translateX(0);
+            }
+            50% {
+                transform: scale(1.08) translateX(0px); /* Pulse and slight shift */
+            }
+        }
+
         .button {
             font-size: 18px;
             padding: 10px 20px;
@@ -90,6 +99,7 @@
             background-color: black;
             color: white;
             transition: color 0.2s ease, background-color 0.2s ease;
+            animation: enterPulse 1.5s infinite ease-in-out; /* Enter button animation */
         }
         .enter-button:hover {
             color: yellow;
@@ -145,8 +155,8 @@
         <br>
         <button class="button" onclick="toggleDropdown()">Files</button>
         <ul id="dropdownMenu" class="dropdown">
-            <li><a href="files/placeholder.txt" download>∗ Arduino Project 1</a></li>
-            <li><a href="files/placeholder.txt" download>∗ Arduino Project 2</a></li>
+            <li><a href="Files/placeholder.txt" download>∗ Arduino Project 1</a></li>
+            <li><a href="Files/placeholder.txt" download>∗ Arduino Project 2</a></li>
             <!-- Add more file links as needed -->
         </ul>
         <audio id="hoverSound" src="hover_sound.mp3"></audio>
