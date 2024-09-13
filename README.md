@@ -1,1 +1,1 @@
-https://github.com/Internalization/internalization.github.io/blob/main/text.gif?raw=true
+![Widget](https://github.com/Internalization/internalization.github.io/blob/main/text.gif?raw=true)
