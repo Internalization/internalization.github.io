@@ -28,7 +28,7 @@ document.getElementById("clothingAppButton").addEventListener("click", function 
 function chooseRandomVideo() {
     // Updated video options including bg1.mp4 to bg11.mp4
     const videoOptions = [];
-    for (let i = 1; i <= 11; i++) {
+    for (let i = 10; i <= 11; i++) {
         videoOptions.push(`bg${i}.mp4`);
     }
 
