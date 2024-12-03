@@ -1,0 +1,154 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  overflow: hidden;
+}
+
+/* Landing Page */
+.landing {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.3);
+  transition: filter 0.8s ease-in-out;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  transition: opacity 0.8s ease-in-out;
+}
+
+button {
+  padding: 15px 40px;
+  font-size: 1.5rem;
+  font-family: 'Roboto', sans-serif;
+  border: 2px solid white;
+  border-radius: 25px;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background 0.3s ease, transform 0.3s ease;
+  animation: pulse 2s infinite;
+}
+
+button:hover {
+  background: white;
+  color: black;
+  transform: scale(1.1);
+}
+
+/* Profile Page */
+.profile-page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none; /* Hidden by default */
+  background: transparent; /* Video remains visible */
+  opacity: 0; /* Start fully transparent */
+  transition: opacity 0.8s ease-in-out; /* Smooth fade-in */
+}
+
+/* Profile Card */
+.profile-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.1); /* Frosted glass effect */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(15px); /* Crystal-like blur */
+  border-radius: 15px;
+  padding: 40px 30px;
+  width: 400px; /* Wider card */
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5); /* Enhanced shadow */
+}
+
+/* Profile Picture */
+.profile-image {
+  border-radius: 50%;
+  width: 150px; /* Larger profile picture */
+  height: 150px;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border: 4px solid rgba(255, 255, 255, 0.4); /* Subtle border */
+}
+
+.profile-name {
+  position: relative;
+  z-index: 2; /* Ensures text appears above sparkles */
+  font-size: 2rem; /* Larger text */
+  margin-bottom: 10px;
+  color: white;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Glow effect */
+}
+
+/* Profile Description */
+.profile-card p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Icons Section */
+.icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.icons svg {
+  width: 30px;
+  height: 30px;
+  fill: white;
+  cursor: pointer;
+  transition: transform 0.3s ease, fill 0.3s ease;
+}
+
+.icons svg:hover {
+  fill: #ccc;
+  transform: scale(1.2);
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
+  }
+}
